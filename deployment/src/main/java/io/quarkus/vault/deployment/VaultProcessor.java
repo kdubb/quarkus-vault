@@ -24,6 +24,7 @@ import io.quarkus.vault.runtime.VaultCredentialsProvider;
 import io.quarkus.vault.runtime.VaultDynamicCredentialsManager;
 import io.quarkus.vault.runtime.VaultKubernetesAuthManager;
 import io.quarkus.vault.runtime.VaultKvManager;
+import io.quarkus.vault.runtime.VaultMutualTLSProvider;
 import io.quarkus.vault.runtime.VaultPKIManager;
 import io.quarkus.vault.runtime.VaultPKIManagerFactory;
 import io.quarkus.vault.runtime.VaultRecorder;
@@ -85,6 +86,7 @@ public class VaultProcessor {
         return new AdditionalBeanBuildItem.Builder()
                 .setUnremovable()
                 .addBeanClass(VaultCredentialsProvider.class)
+                .addBeanClass(VaultMutualTLSProvider.class)
                 .addBeanClass(VaultKvManager.class)
                 .addBeanClass(VaultTransitManager.class)
                 .addBeanClass(VaultTOTPManager.class)

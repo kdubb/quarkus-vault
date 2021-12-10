@@ -241,6 +241,19 @@ public class VaultBootstrapConfig {
     public Map<String, CredentialsProviderConfig> credentialsProvider;
 
     /**
+     * List of named mutual TLS providers, such as: `quarkus.vault.mtls-provider.foo.role=app-role`
+     * <p>
+     * This defines a mutual TLS provider `foo` retrieving keys/certificates from Vault path `app-role`.
+     * Once defined, this provider can be used in mutual TLS consumers, such as the rest clients.
+     * <p>
+     * Example: `quarkus.rest-client-reactive.mtls-provider=foo`
+     *
+     * @asciidoclet
+     */
+    @ConfigItem
+    public Map<String, MutualTLSProviderConfig> mtlsProvider;
+
+    /**
      * Transit Engine
      */
     @ConfigItem
